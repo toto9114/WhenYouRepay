@@ -1,0 +1,181 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.whenrepay.rnd.whenrepay.BorrowMoney.SendFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+<RelativeLayout
+    android:id="@+id/iou"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/btn_done">
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="차용증" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView26"
+        android:layout_marginTop="72dp"
+        android:text="원금 :" />
+
+    <TextView
+        android:id="@+id/text_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView27"
+        android:layout_toEndOf="@+id/textView27"
+        android:layout_toRightOf="@+id/textView27"
+        android:text="New Text" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView27"
+        android:text="이자율 :" />
+
+    <TextView
+        android:id="@+id/text_interest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView29"
+        android:layout_toEndOf="@+id/textView29"
+        android:layout_toRightOf="@+id/textView29"
+        android:text="New Text" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView29"
+        android:text="변제기일 :" />
+
+    <TextView
+        android:id="@+id/text_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_interest"
+        android:layout_toEndOf="@+id/textView31"
+        android:layout_toRightOf="@+id/textView31"
+        android:text="New Text" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView31"
+        android:text="입금처 :" />
+
+    <TextView
+        android:id="@+id/text_user_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView31"
+        android:layout_toEndOf="@+id/textView33"
+        android:layout_toRightOf="@+id/textView33"
+        android:text="New Text" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="설명" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView35"
+        android:layout_marginTop="48dp"
+        android:text="채권자 : "
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/text_creditor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView36"
+        android:layout_toEndOf="@+id/textView36"
+        android:layout_toRightOf="@+id/textView36"
+        android:text="New Text" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="차용인 : "
+        android:layout_alignTop="@+id/text_borrower"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/text_borrower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:layout_alignTop="@+id/image_borrower_sign"
+        android:layout_toRightOf="@+id/textView38"
+        android:layout_toEndOf="@+id/textView38" />
+
+    <ImageView
+        android:id="@+id/image_mysign"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/text_creditor"
+        android:layout_toEndOf="@+id/text_creditor"
+        android:layout_toRightOf="@+id/text_creditor" />
+
+    <ImageView
+        android:id="@+id/image_borrower_sign"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/image_mysign"
+        android:layout_toRightOf="@+id/text_borrower"
+        android:layout_toEndOf="@+id/text_borrower" />
+
+    <TextView
+        android:id="@+id/text_bottom_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:text="New Text" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView4"
+        android:layout_alignTop="@+id/text_creditor"
+        android:layout_toRightOf="@+id/text_creditor"
+        android:layout_toEndOf="@+id/text_creditor" />
+
+</RelativeLayout>
+    <Button
+        android:id="@+id/btn_done"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="보내기" />
+
+
+</RelativeLayout>

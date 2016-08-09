@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">WhenYouRepay</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="alert_close_borrow_money">돈 빌려주기 작성을 삭제하시겠습니까?</string>
+</resources>
