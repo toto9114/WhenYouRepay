@@ -15,4 +15,9 @@
     <color name="sub_trans_money">#F44336</color>
 
     <color name="light_gray">#eeeeee</color>
+
+    <color name="dutchpay_floating_menu">#F1635F</color>
+    <color name="things_floating_menu">#4F80FF</color>
+    <color name="money_floating_menu">#17AE99</color>
+    <color name="floating_label_text">#212121</color>
 </resources>

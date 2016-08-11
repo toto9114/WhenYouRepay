@@ -47,7 +47,7 @@
             android:id="@+id/btn_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_colorNormal="@color/white"
+            fab:fab_colorNormal="@color/money_floating_menu"
             fab:fab_colorPressed="@color/white_pressed"
             fab:fab_size="mini"
             fab:fab_title="돈빌려주기" />
@@ -56,7 +56,7 @@
             android:id="@+id/btn_things"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_colorNormal="@color/white"
+            fab:fab_colorNormal="@color/things_floating_menu"
             fab:fab_colorPressed="@color/white_pressed"
             fab:fab_size="mini"
             fab:fab_title="물건 빌려주기" />
@@ -65,7 +65,7 @@
             android:id="@+id/btn_dutch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_colorNormal="@color/white"
+            fab:fab_colorNormal="@color/dutchpay_floating_menu"
             fab:fab_colorPressed="@color/white_pressed"
             fab:fab_size="mini"
             fab:fab_title="더치페이하기" />
