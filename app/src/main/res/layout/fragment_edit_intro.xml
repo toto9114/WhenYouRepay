@@ -10,10 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/image_intro"
-        android:layout_above="@+id/btn_done"
+        android:layout_above="@+id/btn_return"
         android:layout_gravity="center_horizontal|top" />
     <Button
-        android:id="@+id/btn_done"
+        android:id="@+id/btn_return"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

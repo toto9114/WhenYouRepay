@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#2D63C8</color>
+    <color name="colorPrimaryDark">#2D63C8</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="white_pressed">#f1f1f1</color>
     <color name="white">#fafafa</color>
 
     <color name="opacity_background">#88ffffff</color>
+    <color name="fab_normal">#ffe91e63</color>
+    <color name="fab_pressed">#aae91e63</color>
+
+    <color name="add_trans_money">#009688</color>
+    <color name="sub_trans_money">#F44336</color>
+
+    <color name="light_gray">#eeeeee</color>
 </resources>

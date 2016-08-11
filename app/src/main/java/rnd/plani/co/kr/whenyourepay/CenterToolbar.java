@@ -12,7 +12,7 @@ public class CenterToolbar extends FrameLayout {
     public CenterToolbar(Context context) {
         super(context);
         inflate(getContext(), R.layout.view_center_toolbar, this);
-        titleView = (TextView)findViewById(R.id.text_title);
+        titleView = (TextView)findViewById(R.id.image_category);
     }
 
     public void setTitle(String title){

@@ -33,7 +33,7 @@ public class EventView extends FrameLayout {
         super(context);
         inflate(getContext(), R.layout.view_edit_event, this);
         editMoney = (EditText) findViewById(R.id.edit_money);
-        titleView = (TextView) findViewById(R.id.text_title);
+        titleView = (TextView) findViewById(R.id.image_category);
         editTitleView = (TextView) findViewById(R.id.text_change_title);
         countView = (TextView) findViewById(R.id.text_count);
         group = (FlowLayout) findViewById(R.id.check_group);

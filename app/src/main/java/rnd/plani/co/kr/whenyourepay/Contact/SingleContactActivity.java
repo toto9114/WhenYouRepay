@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
 import rnd.plani.co.kr.whenyourepay.R;
 
@@ -22,7 +23,8 @@ public class SingleContactActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_contact);
-        setTitle("Contract");
+        setTitle("인원 추가");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         overridePendingTransition(R.anim.slide_right_in, R.anim.slide_left_out_background);
 
         Intent i = getIntent();
@@ -84,6 +86,17 @@ public class SingleContactActivity extends AppCompatActivity {
     public String getType(){
         return type;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == android.R.id.home){
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     public void finish() {
         super.finish();

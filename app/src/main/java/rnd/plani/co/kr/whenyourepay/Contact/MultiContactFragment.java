@@ -117,7 +117,7 @@ public class MultiContactFragment extends Fragment {
         });
 
 
-        Button btn = (Button) view.findViewById(R.id.btn_done);
+        Button btn = (Button) view.findViewById(R.id.btn_return);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

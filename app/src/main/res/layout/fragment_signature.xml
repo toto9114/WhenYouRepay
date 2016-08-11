@@ -32,6 +32,20 @@
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/text_name" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_delete"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -39,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView20"
+            android:layout_below="@+id/linear_name"
             android:orientation="horizontal">
 
             <TextView
@@ -69,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView20"
+            android:layout_below="@+id/linear_name"
             android:orientation="horizontal">
 
             <TextView
@@ -80,7 +94,7 @@
                 android:text="변제일" />
 
             <TextView
-                android:id="@+id/text_date"
+                android:id="@+id/text_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -123,7 +137,7 @@
             android:text="서명다시하기" />
 
         <Button
-            android:id="@+id/btn_done"
+            android:id="@+id/btn_return"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

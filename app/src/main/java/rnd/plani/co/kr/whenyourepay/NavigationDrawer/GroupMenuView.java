@@ -15,7 +15,7 @@ public class GroupMenuView extends FrameLayout {
     public GroupMenuView(Context context) {
         super(context);
         inflate(getContext(), R.layout.view_group_menu,this);
-        titleView = (TextView)findViewById(R.id.text_title);
+        titleView = (TextView)findViewById(R.id.image_category);
     }
 
     public void setGroupMenu(GroupMenu groupMenu){

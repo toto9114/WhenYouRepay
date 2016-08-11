@@ -58,7 +58,7 @@ public class EditEventFragment extends Fragment {
 
         mFlowLayout = (FlowLayout) view.findViewById(R.id.flowlayout);
 
-        Button btn = (Button) view.findViewById(R.id.btn_done);
+        Button btn = (Button) view.findViewById(R.id.btn_return);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

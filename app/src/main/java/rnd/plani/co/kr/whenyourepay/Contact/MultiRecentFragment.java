@@ -82,7 +82,7 @@ public class MultiRecentFragment extends Fragment {
                 isMyContactChecked = isChecked;
             }
         });
-        Button btn = (Button) view.findViewById(R.id.btn_done);
+        Button btn = (Button) view.findViewById(R.id.btn_return);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

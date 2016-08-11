@@ -75,17 +75,17 @@ public class SendFragment extends Fragment {
     private static final String FILE_NAME = "iou_image.jpg";
         private static final int REQUEST_WRITE_EXTERNAL_STORAGE = 100;
 
-
+    View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_send, container, false);
+        view = inflater.inflate(R.layout.fragment_send, container, false);
         creditorName = (TextView) view.findViewById(R.id.text_creditor);
         borrowerName = (TextView) view.findViewById(R.id.text_borrower);
         priceView = (TextView) view.findViewById(R.id.text_money);
         interestView = (TextView) view.findViewById(R.id.text_interest);
-        dateView = (TextView) view.findViewById(R.id.text_date);
+        dateView = (TextView) view.findViewById(R.id.text_desc);
         userAccountView = (TextView) view.findViewById(R.id.text_user_account);
         bottomDate = (TextView) view.findViewById(R.id.text_bottom_date);
         borrowerSign = (ImageView) view.findViewById(R.id.image_borrower_sign);
@@ -117,7 +117,7 @@ public class SendFragment extends Fragment {
             Date date = new Date();
             bottomDate.setText(sdf.format(date));
         }
-        Button btn = (Button) view.findViewById(R.id.btn_done);
+        Button btn = (Button) view.findViewById(R.id.btn_return);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -209,7 +209,8 @@ public class SendFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_SEND_IMAGE) {
-            ((LendMoneyActivity) getActivity()).changeSuccess();
+            ((LendMoneyActivity)getActivity()).setSuccessResult();
+            getActivity().finish();
         }
     }
 

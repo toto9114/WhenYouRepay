@@ -28,7 +28,7 @@
             android:layout_gravity="center_vertical"
             android:clickable="false"
             android:focusable="false"
-            android:hint="빌린사람 >"
+            android:hint="빌린 사람 >"
             android:textSize="16sp" />
 
     </LinearLayout>
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:id="@+id/text_date"
+            android:id="@+id/text_desc"
             android:clickable="false"
             android:focusable="false"
             style="@android:style/Widget.EditText"
@@ -117,7 +117,7 @@
 
 
     <Button
-        android:id="@+id/btn_done"
+        android:id="@+id/btn_return"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

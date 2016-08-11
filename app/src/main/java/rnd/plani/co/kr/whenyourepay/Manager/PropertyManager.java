@@ -26,14 +26,14 @@ public class PropertyManager {
         mEditor = mPrefs.edit();
     }
 
-    private static final String REG_MEMBER = "member";
+    private static final String REG_USER = "user";
 
-    public void setMember(boolean isMember){
-        mEditor.putBoolean(REG_MEMBER,isMember);
+    public void setUser(boolean isUser){
+        mEditor.putBoolean(REG_USER,isUser);
         mEditor.commit();
     }
-    public boolean isMember(){
-        return mPrefs.getBoolean(REG_MEMBER,false);
+    public boolean isUser(){
+        return mPrefs.getBoolean(REG_USER,false);
     }
 
     private static final String REG_NAME = "name";

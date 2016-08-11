@@ -13,9 +13,14 @@ import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -72,15 +77,25 @@ public class SendThingsFragment extends Fragment {
     RelativeLayout iou;
     TextView thingsNameView, dateView, myNameView, borrowerNameView;
     ImageView thingsView, mySignView, borrowerSignView;
+    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_send_things, container, false);
+        view = inflater.inflate(R.layout.fragment_send_things, container, false);
+
+        View customToolbar = getLayoutInflater(savedInstanceState).inflate(R.layout.view_center_toolbar, null);
+        TextView titleView = (TextView)customToolbar.findViewById(R.id.image_category);
+        titleView.setText("물건빌려주기");
+        ((LendThingsActivity)getActivity()).getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        ((LendThingsActivity)getActivity()).getSupportActionBar().setCustomView(customToolbar, new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
+        ((LendThingsActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        setHasOptionsMenu(true);
         mRealm = Realm.getInstance(getContext());
         thingsNameView = (TextView) view.findViewById(R.id.text_things);
-        dateView = (TextView) view.findViewById(R.id.text_date);
+        dateView = (TextView) view.findViewById(R.id.text_desc);
         myNameView = (TextView) view.findViewById(R.id.text_myname);
         borrowerNameView = (TextView) view.findViewById(R.id.text_borrower);
         thingsView = (ImageView) view.findViewById(R.id.image_things);
@@ -94,8 +109,8 @@ public class SendThingsFragment extends Fragment {
             public void onClick(View v) {
 //                Log.i("SendThings", "name:" + thingsData.borrowerName + "things:" + thingsData.thingsName + "\ndate:" + thingsData.date + "memo" + thingsData.memo);
                 DataManager.getInstance().insertContractThings(thingsData);
-                for(TransactionData data : DataManager.getInstance().getContractThingsList()){
-                    ThingsData thingsData = (ThingsData)data;
+                for (TransactionData data : DataManager.getInstance().getContractThingsList()) {
+                    ThingsData thingsData = (ThingsData) data;
                     Log.i("SendThings", "name:" + thingsData.borrowerName + " things:" + thingsData.thingsName + "\ndate:" + thingsData.date + " memo:" + thingsData.memo);
                 }
                 if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -128,8 +143,9 @@ public class SendThingsFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQUEST_SEND_IMAGE){
-            ((LendThingsActivity)getActivity()).changeSuccess();
+        if (requestCode == REQUEST_SEND_IMAGE) {
+            ((LendThingsActivity) getActivity()).setSuccessResult();
+            getActivity().finish();
         }
     }
 
@@ -175,9 +191,9 @@ public class SendThingsFragment extends Fragment {
         mySignView.setImageBitmap(byteArrayToBitmap(profile.getSignature()));
         borrowerNameView.setText(thingsData.borrowerName);
         borrowerSignView.setImageBitmap(byteArrayToBitmap(borrowerData.byteBitmap));
-        if(!TextUtils.isEmpty(thingsData.pictureUri)) {
+        if (!TextUtils.isEmpty(thingsData.pictureUri)) {
             Glide.with(getContext()).load(thingsData.pictureUri).into(thingsView);
-        }else{
+        } else {
 //            thingsView.setImageResource();
         }
 
@@ -206,5 +222,25 @@ public class SendThingsFragment extends Fragment {
     public Bitmap byteArrayToBitmap(byte[] $byteArray) {
         Bitmap bitmap = BitmapFactory.decodeByteArray($byteArray, 0, $byteArray.length);
         return bitmap;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_close,menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == android.R.id.home){
+            getActivity().getSupportFragmentManager().popBackStack();
+            return true;
+        }
+        if(id == R.id.menu_close){
+            getActivity().finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

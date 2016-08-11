@@ -3,6 +3,8 @@ package rnd.plani.co.kr.whenyourepay;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,10 +21,16 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 import rnd.plani.co.kr.whenyourepay.BorrowMoney.LendMoneyActivity;
 import rnd.plani.co.kr.whenyourepay.BorrowThings.LendThingsActivity;
+import rnd.plani.co.kr.whenyourepay.Complete.CompleteActivity;
 import rnd.plani.co.kr.whenyourepay.DutchPay.DutchPayActivity;
+import rnd.plani.co.kr.whenyourepay.MainContract.MainFragment;
 import rnd.plani.co.kr.whenyourepay.NavigationDrawer.MenuFragment;
+import rnd.plani.co.kr.whenyourepay.OverDue.OverDueActivity;
 
 public class MainActivity extends AppCompatActivity implements MenuFragment.OnMenuItemSelectedListener {
+
+    private static final int REQUEST_SUCESS = 100;
+
     DrawerLayout drawerLayout;
     FloatingActionsMenu mainMenu;
     FloatingActionButton moneyView, thingsView, dutchView;
@@ -47,7 +55,6 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.OnMe
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-//        setDrawerWidth();
 
         opacityView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.OnMe
         moneyView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, LendMoneyActivity.class));
+                startActivityForResult(new Intent(MainActivity.this, LendMoneyActivity.class),REQUEST_SUCESS);
                 mainMenu.collapseImmediately();
             }
         });
@@ -83,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.OnMe
         thingsView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, LendThingsActivity.class));
+                startActivityForResult(new Intent(MainActivity.this, LendThingsActivity.class),REQUEST_SUCESS);
                 mainMenu.collapseImmediately();
             }
         });
@@ -95,6 +102,12 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.OnMe
                 mainMenu.collapseImmediately();
             }
         });
+
+        if(savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container, new MainFragment())
+                    .commit();
+        }
     }
 
     public void setOpacity(boolean isOpacity) {
@@ -110,19 +123,20 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.OnMe
             opacityView.setAnimation(animation);
         }
     }
-//
-//    private void setDrawerWidth() {
-//        DisplayMetrics displayMetrics = new DisplayMetrics();
-//
-//        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-//        float dipWidth = (displayMetrics.widthPixels / displayMetrics.density);
-//
-//        Resources resources = getResources();
-//        float width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipWidth - 56, resources.getDisplayMetrics());
-//        DrawerLayout.LayoutParams params = (DrawerLayout.LayoutParams) drawerLayout.getLayoutParams();
-//        params.width = (int) (width);
-//        drawerLayout.setLayoutParams(params);
-//    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQUEST_SUCESS && resultCode == RESULT_OK){
+            Utils.deleteCompleteFile();
+            Snackbar.make(mainMenu,"거래끝",Snackbar.LENGTH_SHORT).setAction("OK", new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            }).show();
+        }
+    }
 
     public int getStatusBarHeight() {
         int result = 0;
@@ -157,6 +171,19 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.OnMe
 
     @Override
     public void onMenuItemSelected(@MenuFragment.MenuMode int menuId) {
-
+        switch (menuId){
+            case MenuFragment.MENU_ID_OVERDUE:
+                startActivity(new Intent(this, OverDueActivity.class));
+                break;
+            case MenuFragment.MENU_ID_COMPLETE:
+                startActivity(new Intent(this, CompleteActivity.class));
+                break;
+            case MenuFragment.MENU_ID_RECOMMEND:
+                break;
+            case MenuFragment.MENU_ID_EVALUATE:
+                break;
+        }
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
     }
 }

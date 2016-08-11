@@ -61,7 +61,7 @@ public class EditInfoFragment extends Fragment {
 
         mRealm = Realm.getInstance(getContext());
 
-        Button btn = (Button) view.findViewById(R.id.btn_done);
+        Button btn = (Button) view.findViewById(R.id.btn_return);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

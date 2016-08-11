@@ -59,7 +59,7 @@ public class ContractFragment extends Fragment {
         imm = (InputMethodManager)view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         accountData = new AccountData();
         nameView = (TextView)view.findViewById(R.id.text_name);
-        dateView = (TextView)view.findViewById(R.id.text_date);
+        dateView = (TextView)view.findViewById(R.id.text_desc);
         priceView = (EditText) view.findViewById(R.id.edit_money);
         memoView = (EditText) view.findViewById(R.id.edit_memo);
 
@@ -88,7 +88,7 @@ public class ContractFragment extends Fragment {
                 pickerDialog.show();
             }
         });
-        Button btn = (Button) view.findViewById(R.id.btn_done);
+        Button btn = (Button) view.findViewById(R.id.btn_return);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

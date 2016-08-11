@@ -77,7 +77,7 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/btn_done"
+        android:layout_above="@+id/btn_return"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:paddingLeft="16dp"
@@ -85,7 +85,7 @@
         android:layout_below="@+id/divider" />
 
     <Button
-        android:id="@+id/btn_done"
+        android:id="@+id/btn_return"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

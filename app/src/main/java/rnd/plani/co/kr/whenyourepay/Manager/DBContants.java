@@ -94,5 +94,6 @@ public class DBContants {
     }
 
     public static final String IOU_FOLDER_NAME = "whenyourepay";
+    public static final String FILE_NAME = "iou_image.jpg";
     public static final int SORT_TYPE_DATE = 1;
 }

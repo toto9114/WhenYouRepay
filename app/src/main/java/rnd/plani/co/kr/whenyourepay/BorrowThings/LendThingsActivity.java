@@ -1,14 +1,16 @@
 package rnd.plani.co.kr.whenyourepay.BorrowThings;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
+import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import rnd.plani.co.kr.whenyourepay.Data.BorrowerData;
+import rnd.plani.co.kr.whenyourepay.Data.ThingsData;
 import rnd.plani.co.kr.whenyourepay.R;
+import rnd.plani.co.kr.whenyourepay.Utils;
 
 
 public class LendThingsActivity extends AppCompatActivity {
@@ -17,15 +19,16 @@ public class LendThingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lend_things);
-        overridePendingTransition(R.anim.slide_right_in, R.anim.slide_left_out_background);
+        overridePendingTransition(R.anim.slide_up, R.anim.null_animation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("빌려주기");
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
-        }
+        AppBarLayout appBarLayout = (AppBarLayout)findViewById(R.id.appbar);
+        appBarLayout.setPadding(0, Utils.getStatusBarHeight(), 0, 0);
+        setSupportActionBar(toolbar);
+
+
+
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.slide_right_in, R.anim.slide_left_out, R.anim.slide_left_in, R.anim.slide_right_out)
@@ -57,19 +60,22 @@ public class LendThingsActivity extends AppCompatActivity {
                 .addToBackStack(null)
                 .commit();
     }
-    protected void changeSuccess() {
 
+    public void setSuccessResult(){
+        setResult(RESULT_OK);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == android.R.id.home) {
-            if(getSupportFragmentManager().getBackStackEntryCount()>1) {
-                getSupportFragmentManager().popBackStack();
-            }else{
-                finish();
-            }
+
+        if(id == R.id.menu_close){
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -78,6 +84,6 @@ public class LendThingsActivity extends AppCompatActivity {
     @Override
     public void finish() {
         super.finish();
-        overridePendingTransition(R.anim.slide_left_in_background, R.anim.slide_right_out);
+        overridePendingTransition(R.anim.null_animation, R.anim.slide_down);
     }
 }

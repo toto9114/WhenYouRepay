@@ -5,7 +5,17 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="intro_edit_info_title">프로필을 입력해주세요</string>
+    <string name="intro_edit_info_message">기재한 계좌번호가 차용증 전송시 첨부됩니다\n오타에 주의하여 주세요.</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="alert_close_borrow_money">돈 빌려주기 작성을 삭제하시겠습니까?</string>
+
+    <string name="category_money">돈 빌려주기</string>
+    <string name="category_things">물건 빌려주기</string>
+    <string name="category_dutch">더치페이</string>
+    <string name="detail_trans_title">거래 상세보기</string>
+
+    <string name="alert_repay_all">상환처리 후에는 내역 수정이 불가합니다.\n최종 상환처리를 하시겠습니까?</string>
 </resources>

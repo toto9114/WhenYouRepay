@@ -3,6 +3,7 @@ package rnd.plani.co.kr.whenyourepay.BorrowMoney;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -21,13 +22,13 @@ import rnd.plani.co.kr.whenyourepay.Utils;
 
 public class LendMoneyActivity extends AppCompatActivity {
 
-
+ViewPager pager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lend);
         View customToolbar = getLayoutInflater().inflate(R.layout.view_center_toolbar, null);
-        TextView titleView = (TextView)customToolbar.findViewById(R.id.text_title);
+        TextView titleView = (TextView)customToolbar.findViewById(R.id.image_category);
         titleView.setText("돈빌려주기");
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
         appBarLayout.setPadding(0, Utils.getStatusBarHeight(), 0, 0);
@@ -73,9 +74,9 @@ public class LendMoneyActivity extends AppCompatActivity {
                 .commit();
     }
 
-    protected void changeSuccess() {
-
-    }
+   public void setSuccessResult(){
+       setResult(RESULT_OK);
+   }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 
+import rnd.plani.co.kr.whenyourepay.MainActivity;
+import rnd.plani.co.kr.whenyourepay.Manager.PropertyManager;
 import rnd.plani.co.kr.whenyourepay.R;
 
 public class SplashActivity extends AppCompatActivity {
@@ -18,7 +20,13 @@ public class SplashActivity extends AppCompatActivity {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this,WalkthroughActivity.class));
+                if(PropertyManager.getInstance().isUser()){
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    finish();
+                }else {
+                    startActivity(new Intent(SplashActivity.this, WalkthroughActivity.class));
+                    finish();
+                }
             }
         },1000);
     }

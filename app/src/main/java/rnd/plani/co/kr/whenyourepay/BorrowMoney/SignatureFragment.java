@@ -43,7 +43,7 @@ public class SignatureFragment extends Fragment {
         }
     }
 
-    TextView priceView, krPriceView, dateView;
+    TextView nameView, priceView, krPriceView, dateView;
 
     View view;
     @Override
@@ -58,18 +58,21 @@ public class SignatureFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_signature, container, false);
         paint = (FingerPaintView) view.findViewById(R.id.sign);
         priceView = (TextView) view.findViewById(R.id.text_money);
+        nameView = (TextView) view.findViewById(R.id.text_name);
         krPriceView = (TextView) view.findViewById(R.id.text_kr_money);
-        dateView = (TextView) view.findViewById(R.id.text_date);
+        dateView = (TextView) view.findViewById(R.id.text_desc);
 
         NumberFormat nf = NumberFormat.getInstance();
         if (accountData != null) {
+            nameView.setText(accountData.getName());
             priceView.setText(nf.format(accountData.money));
             dateView.setText(accountData.repayDate);
             krPriceView.setText("(금 "+ convertHangul(String.valueOf(accountData.money))+")");
         }
 
 
-        Button btn = (Button) view.findViewById(R.id.btn_done);
+
+        Button btn = (Button) view.findViewById(R.id.btn_return);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

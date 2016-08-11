@@ -91,6 +91,9 @@ public class FingerPaintView extends View {
                 return true;
             case MotionEvent.ACTION_MOVE :
                 if (currentDrawer != null) {
+                    if(drawingListener!=null){
+                        drawingListener.OnDrawing();
+                    }
                     currentDrawer.mPath.lineTo(event.getX(), event.getY());
                     invalidate();
                     return true;
@@ -100,5 +103,15 @@ public class FingerPaintView extends View {
                 return true;
         }
         return super.onTouchEvent(event);
+    }
+
+    public interface OnDrawingListener{
+        public void OnDrawing();
+    }
+
+    public OnDrawingListener drawingListener;
+
+    public void setOnDrawingListener(OnDrawingListener listener){
+        drawingListener = listener;
     }
 }

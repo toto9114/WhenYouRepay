@@ -9,7 +9,8 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:elevation="0dp">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -23,8 +24,9 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@+id/appbar"
+        android:background="@color/colorPrimary"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/linear_menu">
@@ -35,7 +37,8 @@
             android:text="거래 작성"
             android:id="@+id/menu_write_contract"
             android:layout_weight="1"
-            android:gravity="center" />
+            android:gravity="center"
+            android:layout_gravity="center_vertical" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,7 +46,8 @@
             android:text="서명하기"
             android:id="@+id/menu_signature"
             android:layout_weight="1"
-            android:gravity="center" />
+            android:gravity="center"
+            android:layout_gravity="center_vertical" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -51,7 +55,8 @@
             android:text="보내기"
             android:id="@+id/menu_send"
             android:layout_weight="1"
-            android:gravity="center" />
+            android:gravity="center"
+            android:layout_gravity="center_vertical" />
     </LinearLayout>
 
     <FrameLayout

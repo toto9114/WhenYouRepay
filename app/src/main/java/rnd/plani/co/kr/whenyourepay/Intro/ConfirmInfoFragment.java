@@ -51,7 +51,7 @@ public class ConfirmInfoFragment extends Fragment {
             }
         });
 
-        btn = (Button)view.findViewById(R.id.btn_done);
+        btn = (Button)view.findViewById(R.id.btn_return);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

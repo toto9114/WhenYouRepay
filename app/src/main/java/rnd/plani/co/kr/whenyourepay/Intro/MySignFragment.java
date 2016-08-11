@@ -50,7 +50,7 @@ public class MySignFragment extends Fragment {
                 paint.undoAll();
             }
         });
-        btn = (Button) view.findViewById(R.id.btn_done);
+        btn = (Button) view.findViewById(R.id.btn_return);
         btn.setOnClickListener(new View.OnClickListener() { //서명 저장하기
             @Override
             public void onClick(View v) {
@@ -63,7 +63,7 @@ public class MySignFragment extends Fragment {
                     MyProfile profile = mRealm.where(MyProfile.class).findFirst();
                     profile.setSignature(byteArray);
                     mRealm.commitTransaction();
-                    PropertyManager.getInstance().setMember(true);
+                    PropertyManager.getInstance().setUser(true);
                     startActivity(new Intent(getContext(), MainActivity.class));
                     getActivity().finish();
                 }else{

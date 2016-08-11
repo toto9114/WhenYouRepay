@@ -6,14 +6,28 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linear_name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="거래내역 확인" />
+        android:layout_marginTop="48dp"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout7"
@@ -21,9 +35,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView20"
-        android:orientation="vertical"
-        android:layout_marginBottom="16dp">
+        android:layout_below="@+id/linear_name"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical">
 
 
         <LinearLayout
@@ -31,15 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView20"
+            android:layout_below="@+id/linear_name"
             android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView21"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="물품명" />
 
             <TextView
                 android:id="@+id/text_things"
@@ -55,51 +62,18 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView20"
+            android:layout_below="@+id/linear_name"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView23"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="변제일" />
-
-            <TextView
-                android:id="@+id/text_date"
+                android:id="@+id/text_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:text="New Text" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_edit_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="상환일자 수정" />
-
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/linearLayout7"
-        android:text="채무자 서명" />
-
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/linearLayout7"
-        android:text="거래내용 확인 후 서명을 입력해 주세요" />
-
 
     <FrameLayout
         android:layout_width="wrap_content"
@@ -107,34 +81,47 @@
         android:layout_above="@+id/linear_btn"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView24"
-        android:layout_margin="16dp"
-        android:background="@drawable/sign_area">
-        <com.whenrepay.rnd.whenrepay.BorrowMoney.FingerPaintView
-            android:id="@+id/sign"
+        android:layout_margin="16dp">
+
+        <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="270dp"
+
+            android:background="@drawable/sign_area"
+            android:layout_marginTop="12dp">
+
+            <rnd.plani.co.kr.whenyourepay.FingerPaintView
+                android:id="@+id/sign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical" />
+
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/image_resign"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_delete"
+            android:layout_gravity="right|top"
+            android:visibility="gone" />
     </FrameLayout>
+
     <LinearLayout
         android:id="@+id/linear_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
+
         <Button
-            android:id="@+id/btn_resign"
+            android:id="@+id/btn_return"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="서명다시하기"
-            android:layout_weight="1" />
-        <Button
-            android:id="@+id/btn_done"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="입력완료"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:text="다음으로"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"/>
     </LinearLayout>
 </RelativeLayout>

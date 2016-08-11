@@ -71,7 +71,7 @@ public class RegistFragment extends Fragment {
         recyclerView.setAdapter(mAdapter);
         recyclerView.setItemAnimator(new FadeInDownAnimator());
 
-        Button btn = (Button) view.findViewById(R.id.btn_done);
+        Button btn = (Button) view.findViewById(R.id.btn_return);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

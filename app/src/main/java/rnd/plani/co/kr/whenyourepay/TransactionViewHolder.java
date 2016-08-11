@@ -39,7 +39,7 @@ public class TransactionViewHolder extends RecyclerView.ViewHolder {
         categoryView = (TextView) itemView.findViewById(R.id.text_category);
         nameView = (TextView) itemView.findViewById(R.id.text_name);
         moneyView = (TextView) itemView.findViewById(R.id.text_money);
-        dateView = (TextView) itemView.findViewById(R.id.text_date);
+        dateView = (TextView) itemView.findViewById(R.id.text_desc);
     }
 
     AccountData data;

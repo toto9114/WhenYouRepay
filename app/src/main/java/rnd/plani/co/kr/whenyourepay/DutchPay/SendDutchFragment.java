@@ -98,7 +98,7 @@ public class SendDutchFragment extends Fragment {
         mAdapter = new DutchResultAdapter();
         listView.setAdapter(mAdapter);
         totalView = (TextView) view.findViewById(R.id.text_total_price);
-        dateView = (TextView) view.findViewById(R.id.text_date);
+        dateView = (TextView) view.findViewById(R.id.text_desc);
         bottomDateView = (TextView) view.findViewById(R.id.text_bottom_date);
         accountView = (TextView) view.findViewById(R.id.text_account);
         iou = (RelativeLayout) view.findViewById(R.id.iou);
